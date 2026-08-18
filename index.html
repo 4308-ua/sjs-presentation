@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BIM — це IT в будівництві | SJS VDC × CANDUIT</title>
 <meta name="description" content="Презентація курсу BIM&VDC від SJS VDC Inc та CANDUIT. Реальні BIM-проєкти, сучасні інструменти, лектори — практикуючі VDC-спеціалісти.">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -147,12 +148,34 @@
   }
 
   .model-card{
-    width:180px; border:1px solid var(--line); background:var(--panel); padding:8px;
+    width:100%; max-width:280px; border:1px solid var(--line); background:var(--panel); padding:8px;
     flex-shrink:0;
   }
   .model-card img{width:100%; aspect-ratio:1/1; object-fit:cover; filter:contrast(1.1) saturate(1.15);}
   .model-card .cap{font-family:var(--mono); font-size:10px; color:var(--gray-dim); margin-top:8px; letter-spacing:0.02em; text-transform:uppercase;}
-  @media(max-width:560px){ .model-card{width:130px;} }
+
+  /* ---------- Showcase video ---------- */
+  .showcase{padding:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .showcase-video{width:100%; display:block; max-height:70vh; object-fit:cover; background:#e8e8e6;}
+
+  /* ---------- Learn grid ---------- */
+  .learn-grid{display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start;}
+  @media(max-width:780px){ .learn-grid{grid-template-columns:1fr;} .learn-grid .model-card{max-width:220px;} }
+
+  /* ---------- Social ---------- */
+  .social-row{display:flex; gap:1px; background:var(--line); border:1px solid var(--line); flex-wrap:wrap;}
+  .social-link{
+    flex:1; min-width:220px; background:var(--bg); padding:26px 24px; text-decoration:none;
+    display:flex; flex-direction:column; gap:8px; transition:background 0.2s ease;
+  }
+  .social-link:hover{background:var(--panel);}
+  .social-link:hover .social-handle{color:var(--lime);}
+  .social-name{font-family:var(--mono); font-size:11px; color:var(--gray); text-transform:uppercase; letter-spacing:0.08em;}
+  .social-handle{
+    font-family:var(--disp); font-size:20px; text-transform:uppercase; color:var(--white);
+    display:flex; align-items:center; justify-content:space-between; gap:10px; transition:color 0.2s ease;
+  }
+  .social-handle .arrow{font-family:var(--body); font-size:16px;}
 
   /* ---------- Що навчишся ---------- */
   .learn-list{margin-top:8px;}
@@ -267,13 +290,13 @@
 <header>
   <div class="nav-inner">
     <div class="brand">
-      <div class="brand-badge"><img src="assets/logo.png" alt="SJS VDC логотип"></div>
-      <div class="brand-name">SJS VDC <b>×</b> CANDUIT</div>
+      <div class="brand-name">SJS <b>×</b> КНУБА</div>
     </div>
     <div class="nav-links">
       <a href="#learn">Що навчишся</a>
       <a href="#program">Програма</a>
       <a href="#lectors">Лектори</a>
+      <a href="#social">Соцмережі</a>
     </div>
     <a class="nav-cta" href="#register">Реєстрація</a>
   </div>
@@ -286,7 +309,7 @@
     <div><span class="tagline">Model · Coordinate · Collaborate</span></div>
   </div>
   <div class="wrap hero-inner">
-    <div class="tagline" style="justify-content:flex-start; margin-bottom:18px;">Нова дисципліна від SJS VDC × CANDUIT</div>
+    <div class="tagline" style="justify-content:flex-start; margin-bottom:18px;">Нова дисципліна від SJS</div>
     <h1>BIM —<br>це <span class="lime">IT</span><br>в будівництві</h1>
     <p class="hero-sub">Для тих, хто хоче прокачати скіли та бути на крок попереду. Реальні BIM-проєкти, а не лише теорія — і лектори, які самі щодня працюють VDC-спеціалістами.</p>
     <div class="hero-actions">
@@ -300,12 +323,14 @@
         <span>Дата і час</span>
         <b>15 вересня · 15:00</b>
       </div>
-      <div class="model-card">
-        <img src="assets/model-preview.gif" alt="Координація BIM-моделі в Navisworks">
-        <div class="cap">Live · Navisworks</div>
-      </div>
     </div>
   </div>
+</section>
+
+<section class="showcase reveal">
+  <video class="showcase-video" autoplay muted loop playsinline preload="metadata">
+    <source src="assets/showcase.mp4" type="video/mp4">
+  </video>
 </section>
 
 <section id="learn" class="reveal">
@@ -315,12 +340,17 @@
       <h2>Реальні навички, <em>а не теорія</em> в стилі підручника</h2>
       <p>Курс націлений не просто розповісти, що таке BIM, а дати практичні навички, з якими можна одразу йти працювати.</p>
     </div>
-    <div class="learn-list">
-      <div class="learn-row"><span class="arrow-mark">→</span><p>моделювати елементи та вести координацію в Revit і Navisworks</p></div>
-      <div class="learn-row"><span class="arrow-mark">→</span><p>формувати вимоги до моделі та структуру ПРБ (плану реалізації BIM-проєкту)</p></div>
-      <div class="learn-row"><span class="arrow-mark">→</span><p>проводити технічний аудит моделі та виявляти колізії між дисциплінами</p></div>
-      <div class="learn-row"><span class="arrow-mark">→</span><p>випускати креслення та специфікації напряму з готової моделі</p></div>
-      <div class="learn-row"><span class="arrow-mark">→</span><p>працювати за методологією VDC: KPI, ICE та PPM в команді</p></div>
+    <div class="learn-grid">
+      <div class="learn-list">
+        <div class="learn-row"><span class="arrow-mark">→</span><p>моделювати елементи та вести координацію в Revit і Navisworks</p></div>
+        <div class="learn-row"><span class="arrow-mark">→</span><p>проводити технічний аудит моделі та виявляти колізії між дисциплінами</p></div>
+        <div class="learn-row"><span class="arrow-mark">→</span><p>випускати креслення та специфікації напряму з готової моделі</p></div>
+        <div class="learn-row"><span class="arrow-mark">→</span><p>працювати за методологією VDC: KPI, ICE та PPM в команді</p></div>
+      </div>
+      <div class="model-card">
+        <img src="assets/model-preview.gif" alt="Координація BIM-моделі в Navisworks">
+        <div class="cap">Live · Navisworks</div>
+      </div>
     </div>
   </div>
 </section>
@@ -373,6 +403,25 @@
   </div>
 </section>
 
+<section id="social" class="reveal">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:28px;">
+      <div class="tagline">Ми в соцмережах</div>
+      <h2>Стеж за <em>проєктами</em> команди</h2>
+    </div>
+    <div class="social-row">
+      <a href="https://www.linkedin.com/company/sjs-bim-vdc/" target="_blank" rel="noopener" class="social-link">
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">SJS BIM/VDC <span class="arrow">→</span></span>
+      </a>
+      <a href="https://www.instagram.com/canduit.ua/" target="_blank" rel="noopener" class="social-link">
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@canduit.ua <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="register" class="final-cta reveal">
   <div class="wrap">
     <div class="final-grid">
@@ -392,17 +441,17 @@
 
 <footer>
   <div class="wrap" style="width:100%; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-    <span>SJS VDC Inc. × CANDUIT</span>
+    <span>SJS VDC Inc.</span>
     <span>Курс BIM&amp;VDC · КНУБА</span>
   </div>
 </footer>
 
 <script>
-  // Fade-in on scroll
+  // Fade-in / fade-out on scroll — blocks appear and disappear as you pass them
   const revealItems = document.querySelectorAll('.reveal');
   const revealIO = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); revealIO.unobserve(e.target); }
+      e.target.classList.toggle('in', e.isIntersecting);
     });
   }, {threshold:0.12});
   revealItems.forEach(el=>revealIO.observe(el));
